@@ -1,14 +1,20 @@
-Sugar is all about making C# development a little bit sweeter
-=============================================================
+Açúcar (acucar) is sugar in portuguese.
+That said, acucar is just an un-official translation of sugar.
+Original sugar repository is https://github.com/robconery/sugar
 
-This is a set of C# extension methods (compatible with C# 3.5+) that make the language a bit more friendly. It's not a "Utility Belt" per se - just some object extenstions "designed to increase developer happiness".
+Above this line, is just original README translation to portuguese.
 
-These extensions are what I use in the WebMatrix videos on Tekpub.
+Açúcar é para tornar o desenvolvimento em C# um pouco mais doce
+===============================================================
 
-How To Install It?
-------------------
-Drop the code file into your app and change it as you wish. 
+É um conjunto de extension methods (compatíveis com C# 3.5+) que tornam a linguagem um pouco mais amigável. Não é um "Cinto de Utilidades" - apenas algumas extensões para objetos "projetados para aumentar a felicidade do desenvolvedor".
 
-How Do You Use It?
-------------------
-Have a look in the files - see what's there. Strings, Dates, Regex, File IO and Validations - stuff you write every day.
+Essas extensões são as que eu (Rob Conery) uso nos vídeos sobre WebMatrix no Tekpub.
+
+Como instalar?
+--------------
+Coloque os arquivos de código em sua aplicação and modifique como quiser.
+
+Como usar?
+----------
+Dê uma olhada nos arquivos - veja o que tem lá. Strings, Dates, Regex, IO e Validações - coisa que você escreve todos os dias.
