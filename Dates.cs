@@ -13,16 +13,23 @@
 // 
 using System;
 
-public static class Dates {
-
-    public const string AGO = "ago";
-    public const string DAY = "day";
-    public const string HOUR = "hour";
-    public const string MINUTE = "minute";
-    public const string MONTH = "month";
-    public const string SECOND = "second";
+public static class Dates
+{
+    public const string AGO = "atrás";
+    public const string DAY = "dia";
+    public const string HOUR = "hora";
+    public const string MINUTE = "minuto";
+    public const string MONTH = "mês";
+    public const string SECOND = "segundo";
     public const string SPACE = " ";
-    public const string YEAR = "year";
+    public const string YEAR = "ano";
+
+    public const string DAYS = "dias";
+    public const string HOURS = "horas";
+    public const string MINUTES = "minutos";
+    public const string MONTHS = "meses";
+    public const string SECONDS = "segundos";
+    public const string YEARS = "anos";
 
     #region Date Math
 
@@ -31,8 +38,10 @@ public static class Dates {
     /// </summary>
     /// <param name="days">The days.</param>
     /// <returns></returns>
-    public static DateTime DaysAgo(this int days) {
+    public static DateTime DaysAgo(this int days)
+    {
         TimeSpan t = new TimeSpan(days, 0, 0, 0);
+
         return DateTime.Now.Subtract(t);
     }
 
@@ -41,7 +50,8 @@ public static class Dates {
     /// </summary>
     /// <param name="days">The days.</param>
     /// <returns></returns>
-    public static DateTime DaysFromNow(this int days) {
+    public static DateTime DaysFromNow(this int days)
+    {
         TimeSpan t = new TimeSpan(days, 0, 0, 0);
         return DateTime.Now.Add(t);
     }
@@ -51,7 +61,8 @@ public static class Dates {
     /// </summary>
     /// <param name="hours">The hours.</param>
     /// <returns></returns>
-    public static DateTime HoursAgo(this int hours) {
+    public static DateTime HoursAgo(this int hours)
+    {
         TimeSpan t = new TimeSpan(hours, 0, 0);
         return DateTime.Now.Subtract(t);
     }
@@ -61,7 +72,8 @@ public static class Dates {
     /// </summary>
     /// <param name="hours">The hours.</param>
     /// <returns></returns>
-    public static DateTime HoursFromNow(this int hours) {
+    public static DateTime HoursFromNow(this int hours)
+    {
         TimeSpan t = new TimeSpan(hours, 0, 0);
         return DateTime.Now.Add(t);
     }
@@ -71,7 +83,8 @@ public static class Dates {
     /// </summary>
     /// <param name="minutes">The minutes.</param>
     /// <returns></returns>
-    public static DateTime MinutesAgo(this int minutes) {
+    public static DateTime MinutesAgo(this int minutes)
+    {
         TimeSpan t = new TimeSpan(0, minutes, 0);
         return DateTime.Now.Subtract(t);
     }
@@ -81,7 +94,8 @@ public static class Dates {
     /// </summary>
     /// <param name="minutes">The minutes.</param>
     /// <returns></returns>
-    public static DateTime MinutesFromNow(this int minutes) {
+    public static DateTime MinutesFromNow(this int minutes)
+    {
         TimeSpan t = new TimeSpan(0, minutes, 0);
         return DateTime.Now.Add(t);
     }
@@ -91,7 +105,8 @@ public static class Dates {
     /// </summary>
     /// <param name="seconds">The seconds.</param>
     /// <returns></returns>
-    public static DateTime SecondsAgo(this int seconds) {
+    public static DateTime SecondsAgo(this int seconds)
+    {
         TimeSpan t = new TimeSpan(0, 0, seconds);
         return DateTime.Now.Subtract(t);
     }
@@ -101,7 +116,8 @@ public static class Dates {
     /// </summary>
     /// <param name="seconds">The seconds.</param>
     /// <returns></returns>
-    public static DateTime SecondsFromNow(this int seconds) {
+    public static DateTime SecondsFromNow(this int seconds)
+    {
         TimeSpan t = new TimeSpan(0, 0, seconds);
         return DateTime.Now.Add(t);
     }
@@ -117,7 +133,8 @@ public static class Dates {
     /// <param name="dateOne">The date one.</param>
     /// <param name="dateTwo">The date two.</param>
     /// <returns></returns>
-    public static TimeSpan Diff(this DateTime dateOne, DateTime dateTwo) {
+    public static TimeSpan Diff(this DateTime dateOne, DateTime dateTwo)
+    {
         TimeSpan t = dateOne.Subtract(dateTwo);
         return t;
     }
@@ -128,7 +145,8 @@ public static class Dates {
     /// <param name="dateOne">The date one.</param>
     /// <param name="dateTwo">The date two.</param>
     /// <returns></returns>
-    public static double DiffDays(this string dateOne, string dateTwo) {
+    public static double DiffDays(this string dateOne, string dateTwo)
+    {
         DateTime dtOne;
         DateTime dtTwo;
         if (DateTime.TryParse(dateOne, out dtOne) && DateTime.TryParse(dateTwo, out dtTwo))
@@ -142,7 +160,8 @@ public static class Dates {
     /// <param name="dateOne">The date one.</param>
     /// <param name="dateTwo">The date two.</param>
     /// <returns></returns>
-    public static double DiffDays(this DateTime dateOne, DateTime dateTwo) {
+    public static double DiffDays(this DateTime dateOne, DateTime dateTwo)
+    {
         return Diff(dateOne, dateTwo).TotalDays;
     }
 
@@ -152,7 +171,8 @@ public static class Dates {
     /// <param name="dateOne">The date one.</param>
     /// <param name="dateTwo">The date two.</param>
     /// <returns></returns>
-    public static double DiffHours(this string dateOne, string dateTwo) {
+    public static double DiffHours(this string dateOne, string dateTwo)
+    {
         DateTime dtOne;
         DateTime dtTwo;
         if (DateTime.TryParse(dateOne, out dtOne) && DateTime.TryParse(dateTwo, out dtTwo))
@@ -166,7 +186,8 @@ public static class Dates {
     /// <param name="dateOne">The date one.</param>
     /// <param name="dateTwo">The date two.</param>
     /// <returns></returns>
-    public static double DiffHours(this DateTime dateOne, DateTime dateTwo) {
+    public static double DiffHours(this DateTime dateOne, DateTime dateTwo)
+    {
         return Diff(dateOne, dateTwo).TotalHours;
     }
 
@@ -176,7 +197,8 @@ public static class Dates {
     /// <param name="dateOne">The date one.</param>
     /// <param name="dateTwo">The date two.</param>
     /// <returns></returns>
-    public static double DiffMinutes(this string dateOne, string dateTwo) {
+    public static double DiffMinutes(this string dateOne, string dateTwo)
+    {
         DateTime dtOne;
         DateTime dtTwo;
         if (DateTime.TryParse(dateOne, out dtOne) && DateTime.TryParse(dateTwo, out dtTwo))
@@ -190,7 +212,8 @@ public static class Dates {
     /// <param name="dateOne">The date one.</param>
     /// <param name="dateTwo">The date two.</param>
     /// <returns></returns>
-    public static double DiffMinutes(this DateTime dateOne, DateTime dateTwo) {
+    public static double DiffMinutes(this DateTime dateOne, DateTime dateTwo)
+    {
         return Diff(dateOne, dateTwo).TotalMinutes;
     }
 
@@ -200,7 +223,8 @@ public static class Dates {
     /// <param name="startTime">The start time.</param>
     /// <param name="endTime">The end time.</param>
     /// <returns></returns>
-    public static string ReadableDiff(this DateTime startTime, DateTime endTime) {
+    public static string ReadableDiff(this DateTime startTime, DateTime endTime)
+    {
         string result;
 
         int seconds = endTime.Second - startTime.Second;
@@ -210,55 +234,68 @@ public static class Dates {
         int months = endTime.Month - startTime.Month;
         int years = endTime.Year - startTime.Year;
 
-        if (seconds < 0) {
+        if (seconds < 0)
+        {
             minutes--;
             seconds += 60;
         }
-        if (minutes < 0) {
+        if (minutes < 0)
+        {
             hours--;
             minutes += 60;
         }
-        if (hours < 0) {
+        if (hours < 0)
+        {
             days--;
             hours += 24;
         }
 
-        if (days < 0) {
+        if (days < 0)
+        {
             months--;
             int previousMonth = (endTime.Month == 1) ? 12 : endTime.Month - 1;
             int year = (previousMonth == 12) ? endTime.Year - 1 : endTime.Year;
             days += DateTime.DaysInMonth(year, previousMonth);
         }
-        if (months < 0) {
+        if (months < 0)
+        {
             years--;
             months += 12;
         }
 
         //put this in a readable format
-        if (years > 0) {
-            result = years.Pluralize(YEAR);
+        if (years > 0)
+        {
+            result = years.DumbPluralize(YEAR, YEARS);
             if (months != 0)
-                result += ", " + months.Pluralize(MONTH);
-            result += " ago";
-        } else if (months > 0) {
-            result = months.Pluralize(MONTH);
+                result += ", " + months.DumbPluralize(MONTH, MONTHS);
+            result += SPACE + AGO;
+        }
+        else if (months > 0)
+        {
+            result = months.DumbPluralize(MONTH, MONTHS);
             if (days != 0)
-                result += ", " + days.Pluralize(DAY);
-            result += " ago";
-        } else if (days > 0) {
-            result = days.Pluralize(DAY);
+                result += ", " + days.DumbPluralize(DAY, DAYS);
+            result += SPACE + AGO;
+        }
+        else if (days > 0)
+        {
+            result = days.DumbPluralize(DAY,DAYS);
             if (hours != 0)
-                result += ", " + hours.Pluralize(HOUR);
-            result += " ago";
-        } else if (hours > 0) {
-            result = hours.Pluralize(HOUR);
+                result += ", " + hours.DumbPluralize(HOUR,HOURS);
+            result += SPACE + AGO;
+        }
+        else if (hours > 0)
+        {
+            result = hours.DumbPluralize(HOUR,HOURS);
             if (minutes != 0)
-                result += ", " + minutes.Pluralize(MINUTE);
-            result += " ago";
-        } else if (minutes > 0)
-            result = minutes.Pluralize(MINUTE) + " ago";
+                result += ", " + minutes.DumbPluralize(MINUTE,MINUTES);
+            result += SPACE + AGO;
+        }
+        else if (minutes > 0)
+            result = minutes.DumbPluralize(MINUTE,MINUTES) + SPACE + AGO;
         else
-            result = seconds.Pluralize(SECOND) + " ago";
+            result = seconds.DumbPluralize(SECOND,SECONDS) + SPACE + AGO;
 
         return result;
     }
@@ -275,11 +312,13 @@ public static class Dates {
     /// <param name="startTime">The start time.</param>
     /// <param name="endTime">The end time.</param>
     /// <returns></returns>
-    public static int CountWeekdays(this DateTime startTime, DateTime endTime) {
+    public static int CountWeekdays(this DateTime startTime, DateTime endTime)
+    {
         TimeSpan ts = endTime - startTime;
         Console.WriteLine(ts.Days);
         int cnt = 0;
-        for (int i = 0; i < ts.Days; i++) {
+        for (int i = 0; i < ts.Days; i++)
+        {
             DateTime dt = startTime.AddDays(i);
             if (IsWeekDay(dt))
                 cnt++;
@@ -293,11 +332,13 @@ public static class Dates {
     /// <param name="startTime">The start time.</param>
     /// <param name="endTime">The end time.</param>
     /// <returns></returns>
-    public static int CountWeekends(this DateTime startTime, DateTime endTime) {
+    public static int CountWeekends(this DateTime startTime, DateTime endTime)
+    {
         TimeSpan ts = endTime - startTime;
         Console.WriteLine(ts.Days);
         int cnt = 0;
-        for (int i = 0; i < ts.Days; i++) {
+        for (int i = 0; i < ts.Days; i++)
+        {
             DateTime dt = startTime.AddDays(i);
             if (IsWeekEnd(dt))
                 cnt++;
@@ -312,7 +353,8 @@ public static class Dates {
     /// <returns>
     /// 	<c>true</c> if the specified dt is date; otherwise, <c>false</c>.
     /// </returns>
-    public static bool IsDate(this object dt) {
+    public static bool IsDate(this object dt)
+    {
         DateTime newDate;
         return DateTime.TryParse(dt.ToString(), out newDate);
     }
@@ -324,7 +366,8 @@ public static class Dates {
     /// <returns>
     /// 	<c>true</c> if [is week day] [the specified dt]; otherwise, <c>false</c>.
     /// </returns>
-    public static bool IsWeekDay(this DateTime dt) {
+    public static bool IsWeekDay(this DateTime dt)
+    {
         return (dt.DayOfWeek != DayOfWeek.Saturday && dt.DayOfWeek != DayOfWeek.Sunday);
     }
 
@@ -335,7 +378,8 @@ public static class Dates {
     /// <returns>
     /// 	<c>true</c> if [is week end] [the specified dt]; otherwise, <c>false</c>.
     /// </returns>
-    public static bool IsWeekEnd(this DateTime dt) {
+    public static bool IsWeekEnd(this DateTime dt)
+    {
         return (dt.DayOfWeek == DayOfWeek.Saturday || dt.DayOfWeek == DayOfWeek.Sunday);
     }
 
@@ -345,32 +389,38 @@ public static class Dates {
     /// <param name="startTime">The start time.</param>
     /// <param name="endTime">The end time.</param>
     /// <returns></returns>
-    public static string TimeDiff(this DateTime startTime, DateTime endTime) {
+    public static string TimeDiff(this DateTime startTime, DateTime endTime)
+    {
         int seconds = endTime.Second - startTime.Second;
         int minutes = endTime.Minute - startTime.Minute;
         int hours = endTime.Hour - startTime.Hour;
         int days = endTime.Day - startTime.Day;
         int months = endTime.Month - startTime.Month;
         int years = endTime.Year - startTime.Year;
-        if (seconds < 0) {
+        if (seconds < 0)
+        {
             minutes--;
             seconds += 60;
         }
-        if (minutes < 0) {
+        if (minutes < 0)
+        {
             hours--;
             minutes += 60;
         }
-        if (hours < 0) {
+        if (hours < 0)
+        {
             days--;
             hours += 24;
         }
-        if (days < 0) {
+        if (days < 0)
+        {
             months--;
             int previousMonth = (endTime.Month == 1) ? 12 : endTime.Month - 1;
             int year = (previousMonth == 12) ? endTime.Year - 1 : endTime.Year;
             days += DateTime.DaysInMonth(year, previousMonth);
         }
-        if (months < 0) {
+        if (months < 0)
+        {
             years--;
             months += 12;
         }
@@ -390,7 +440,8 @@ public static class Dates {
     /// </summary>
     /// <param name="date">The date to extract the string from</param>
     /// <returns></returns>
-    public static string GetFormattedMonthAndDay(this DateTime date) {
+    public static string GetFormattedMonthAndDay(this DateTime date)
+    {
         return String.Concat(String.Format("{0:MMMM}", date), " ", GetDateDayWithSuffix(date));
     }
 
@@ -399,7 +450,8 @@ public static class Dates {
     /// </summary>
     /// <param name="date">The date to extract the string from</param>
     /// <returns></returns>
-    public static string GetDateDayWithSuffix(this DateTime date) {
+    public static string GetDateDayWithSuffix(this DateTime date)
+    {
         int dayNumber = date.Day;
         string suffix = "th";
 
@@ -420,7 +472,9 @@ public static class Dates {
     /// <param name="previousStr">The previous STR.</param>
     /// <param name="t">The t.</param>
     /// <returns></returns>
-    private static string FormatString(this string str, string previousStr, int t) {
+    private static string FormatString(this string str, string previousStr, int t)
+    {
+        // TODO Ajustar pois a plurizacao aplicada aqui eh estupida
         if ((t == 0) && (previousStr.Length == 0))
             return String.Empty;
 

@@ -96,6 +96,11 @@ public static class Strings {
         return String.Concat(number, " ", sourceString.MakePlural());
     }
 
+    public static string DumbPluralize(this int number, string singular, string plural)
+    {
+        return string.Concat(number, " ", number == 1 ? singular : plural);
+    }
+
     /// <summary>
     /// Removes the specified chars from the beginning of a string.
     /// </summary>
